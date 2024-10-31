@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Employee>(
-          create: (_) => Employee(),
+          create: (_) => Employee.init(),
         ),
       ],
       child: MaterialApp(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           // 로그인
           '/user/login': (context) => LoginScreen(),
           // 내화면
-          //'/user/mypage': (context) => MypageScreen(),
+          '/user/mypage': (context) => MypageScreen(),
         },
       ),
     );
