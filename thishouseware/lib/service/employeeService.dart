@@ -18,9 +18,10 @@ class Service {
     };
     var body = json.encode(data);
     var response = await http.post(uri, headers: headers, body: body);
-    print(response.body);
+    // utf8 로 바꾸자
+    // print(utf8.decode(response.bodyBytes) );
     if (response.statusCode == 200) {
-      return Employee.fromJson(jsonDecode(response.body));
+      return Employee.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
     }
     throw Exception('Failed to load album');
   }
