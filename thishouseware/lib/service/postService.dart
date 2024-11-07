@@ -2,12 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:thishouseware/models/Post.dart';
+import 'package:thishouseware/service/httpURL.dart';
 
 class PostService {
   Future<List<Post>> getAnnouncements() async {
     List<Post> postList = [];
 
-    var uri = Uri.parse("http://localhost:8099/flutter/announcements");
+    var uri = Uri.parse(HttpURL.FRONT_HTTP+"flutter/announcements");
     Map<String, String> headers = {"Content-Type": "application/json"};
     var response = await http.get(uri, headers: headers,);
     // utf8 로 바꾸자
@@ -28,11 +29,10 @@ class PostService {
 
   Future<Post> getPostInfo(int no) async{
     Post post;
-    var uri = Uri.parse("http://localhost:8099/flutter/announcement?no=${no}");
+    var uri = Uri.parse(HttpURL.FRONT_HTTP+"flutter/announcement?no=${no}");
     Map<String, String> headers = {"Content-Type": "application/json"};
     var response = await http.get(uri, headers: headers,);
     // utf8 로 바꾸자
-    // print(utf8.decode(response.bodyBytes) );
     if (response.statusCode == 200) {
       post = Post.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return post;

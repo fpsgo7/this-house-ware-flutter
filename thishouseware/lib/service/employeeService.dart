@@ -5,11 +5,13 @@ import 'package:path/path.dart';
 import 'package:thishouseware/models/Employee.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:thishouseware/service/httpURL.dart';
+
 
 class Service {
   Future<Employee> login(
        String id, String password) async {
-    var uri = Uri.parse("http://localhost:8099/flutter/login");
+    var uri = Uri.parse(HttpURL.FRONT_HTTP+"flutter/login");
     Map<String, String> headers = {"Content-Type": "application/json"};
 
     Map data = {

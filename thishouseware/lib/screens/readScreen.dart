@@ -81,7 +81,7 @@ Widget _padding(Post post){
           '제목 :${post.title}',
         ),
         Text(
-          '작성자 :${post.id}',
+          '작성자 :${post.authority}',
         ),
         Text(
           '${post.content}',

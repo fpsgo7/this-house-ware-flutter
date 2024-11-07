@@ -8,6 +8,7 @@ class Post with ChangeNotifier{
 	String? content; // 내용
 	String? id; // 아이디 *
 	String? name; // 이름 *
+  String? authority;
 
   Post({
     required this.postsNo,
@@ -15,7 +16,8 @@ class Post with ChangeNotifier{
     required this.title,
     required this.content,
     required this.id,
-    required this.name
+    required this.name,
+    required this.authority
   });
 
   factory Post.fromJson(Map<String,dynamic> json){
@@ -25,7 +27,8 @@ class Post with ChangeNotifier{
       postsNo : json["postsNo"],
       title : json["title"],
       content : json["content"],
-      submitDT : json["submitDT"]
+      submitDT : json["submitDT"],
+      authority: json["authority"]
     );
   }
 }

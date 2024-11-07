@@ -50,7 +50,7 @@ class _PostScreenState extends State<PostScreen> {
           return ListTile(
             leading: Text('${post.postsNo}'),
             title: Text('${post.title}'),
-            trailing: Text('${post.id}님'),
+            trailing: Text('${post.authority}님'),
             onTap: (){
               Navigator.pushNamed(
                 context, 
